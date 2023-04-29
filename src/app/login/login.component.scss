@@ -1,0 +1,21 @@
+@import '../app.component.scss';
+.login{
+    position: relative;
+    height: 100vh;
+    color: $text-color;
+    background-image: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.9)),url('../../assets/images/background.jpg');
+    z-index: 50;
+    animation:img 2s;
+}
+.loginForm{
+    padding: 30px;
+    border: 1px solid white;
+    color: white;
+    background-color:transparent;
+    opacity: .8;
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+   transform: translate(-50%,-50%);
+}

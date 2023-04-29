@@ -1,0 +1,10 @@
+@import '../../app.component.scss';
+.main{
+    width: 100vw;
+    height: 65vh;
+    background-color: lighten($color:$primary-color , $amount: 6%);
+    color: $nav-text-color;
+    text-align: center;
+    padding-top: 100px;
+    animation:text 3s ;
+}

@@ -1,0 +1,139 @@
+<app-main [data]="data"></app-main>
+
+
+<div class="container" >
+    <div class="container-info" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Pickup, ASAP (in 15 minutes) <a style="text-decoration: underline;">change</a>
+    </div>
+
+    <div class="navbar  mt-4 mb-4">
+        <div class="dropdown pb-0">
+            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Dropdown button
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+
+
+        <div class=" links me-auto ">
+            <a href="#" class="links-item">Bakery</a>
+            <a href="#" class="links-item">All-Day Breakfast</a>
+        </div>
+
+        <div *ngIf="shoppingList>0" data-bs-toggle="offcanvas" (click)="getOrders()"
+            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <button class="btn btn-secondary">
+                View Cart
+                <i class="fa-solid fa-cart-arrow-down fa-lg "></i>
+                <span class="shopping-badge">{{shoppingList}}</span>
+            </button>
+        </div>
+        <div *ngIf="shoppingList==0" style="cursor: pointer;">
+            <span class="shopping-badge">0</span>
+            <i class="fa-solid fa-cart-arrow-down fa-lg "></i>
+        </div>
+    </div>
+
+    <div class="products">
+        <ul class="list-group">
+            <li style="cursor: pointer;" class="list-group-item mb-3 p-3"
+             data-bs-toggle="modal" data-bs-target="#orderModal" *ngFor="let product of allProducts;let i=index" (click)="orderProduct(i)">
+                <h5>{{product.title}}</h5>
+                <p>{{product.description}}</p>
+                <p >$ {{product.price}}</p>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- Order Modal -->
+    <div class="modal fade " id="orderModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="orderModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form class="" #f="ngForm">
+                    <button type="button" class="btn-close m-4" data-bs-dismiss="modal" aria-label="Close" (click)="resetForm()"></button>
+                    <div class="modal-body  form-group">
+                        <h1>{{productTitle}}</h1>
+                        <p>{{productDescription}}</p>
+                        <label>Special Request</label>
+                        <input type="text" class="form-control" [(ngModel)]="specialRequest" name="specialRequest">
+                    </div>
+                    <div class=" d-flex justify-content-center m-4">
+                        <input style="width: 70px;text-align:center;" class="form-control" type="number" min="1" (click)="calculateTotal()" [(ngModel)]="quantity" name="quantity"/>
+                        <button type="button" class="btn btn-primary ms-2 form-control" data-bs-dismiss="modal" (click)="editFlag?saveEditOrder():addOrder()">{{editFlag?"Edit Order - $":"Add Order - $"}} {{+totalPrice}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--deliveryModal-->
+    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title m-4" id="staticBackdropLabel">How do you want to get your order?</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body m-4">
+                 Pickup from<br>
+                 500 Terry Francois Street, San Francisco, CA 94158, USA<br>
+                 Pickup time<br>
+                 ASAP (in 15 minutes)
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+             </div>
+         </div>
+     </div>
+    </div>
+ 
+    <!--offcanvas-->    
+    <div  class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">My Order({{shoppingList}})</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <form #offcanvas="ngForm" class="m-2">
+            <div class="list-group">
+                <div class=" list-group-item p-0" *ngFor="let order of orders;let i=index" >
+                    <div class="row p-2 m-auto text-center" style="font-size: 16px;">
+                        <div class="col-3 p-2">
+                            <div class="text-center" style="border: 1px solid black;height:25px;max-width: 45px;"
+                              >{{order.quantity}}</div>
+                        </div>
+                        <div class="col-6  align-items-center">
+                            <p class="p-0 m-0">{{order.name}}</p>
+                            <div>
+                                <a href="#" class="me-2" style="color:gray;font-size: 14px;" data-bs-toggle="modal" 
+                                data-bs-dismiss="offcanvas" data-bs-target="#orderModal" (click)="editOrder(i)">Edit</a>
+                                 <a  style="color:gray; font-size: 14px; cursor: pointer;" (click)="removeOrder(i)">Remove</a>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <p>${{order.totalPrice}}</p>
+                        </div>   
+                    </div>
+                </div><!--/list-group-item-->
+                <div class="row m-4" >
+                    <div class="col-6">
+                        <h6>Sub Total :</h6>
+                    </div>
+                    <div class="col-6 text-end ">
+                        <h6> $ {{subTotal}}</h6>
+                    </div>
+                </div>
+            </div>
+            <button  type="button" class="btn btn-secondary form-control" data-bs-dismiss="offcanvas" (click)="goCheckOut()" >Continue to CheckOut</button>
+        </form>
+    </div>
+    
+</div>

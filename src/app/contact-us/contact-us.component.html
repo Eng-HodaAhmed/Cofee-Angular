@@ -1,0 +1,71 @@
+<app-main [data]="data"></app-main>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 line">
+            <form #f="ngForm" class="m-5">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label >First Name*</label>
+                            <input type="text" class="w-100" name="fname" ngModel>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label >Last Name*</label>
+                            <input type="text" class="w-100" name="lname" ngModel>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="form-group">
+                        <label >Email*</label>
+                        <input  class="w-100" type="text" name="email" ngModel>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="form-group">
+                        <label >Message</label>
+                        <textarea maxlength="5" class="w-100" name="message" ngModel></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-secondary form-control" [disabled]="f.valid">Send</button>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <div class="row col-md-10 pt-5 m-auto">
+                <div class="col-md-6 ">
+                    <h4><i class="fa-solid fa-location-dot"></i> Address</h4>
+                    <p>500 Terry Francois St.<br>
+                        San Francisco, CA 94158
+                    </p>
+                </div>
+                <div class="col-md-6 text-end" >
+                    <h4><i class="fa-solid fa-phone"></i> Phone</h4>
+                    <p>123-456-7890</p>
+                </div>
+            </div>
+            <div class="row col-md-10 pt-5 m-auto">
+                <div class="col-md-6 ">
+                    <h4><i class="fa-regular fa-envelope"></i> Email</h4>
+                    <p>info@mysite.com</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <h4><i class="fa-regular fa-thumbs-up"></i> Follow</h4>
+                    <div class=""><i class="fa-brands fa-facebook fa-lg"></i>
+                         <i class="fa-brands fa-twitter fa-lg m-3"></i>
+                         <i class="fa-brands fa-square-instagram fa-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--./row-->
+    
+    <div class="row">
+        <div>
+            <google-map></google-map>
+        </div> 
+    </div>
+</div>

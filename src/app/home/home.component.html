@@ -1,0 +1,98 @@
+
+<div class="home row">
+    <div class="container-fluid text-home">
+        <h3 style="margin-bottom: 1rem;">Cafe & Restaurant Est. 2035</h3>
+        <h1 class="title" style="margin-bottom: 1rem;">Your Go-to Spot for <br>Delicious Eats & Coffee</h1>
+        <div>
+            <button class="btn btn-outline-light m-2 btn-lg" (click)="order()">Order Now</button>
+            <button class="btn btn-outline-light btn-lg" (click)="menu()">Our Menue</button>
+        </div>
+    </div>
+</div>
+
+<div class="row slide">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner text-center mt-3">
+        <div class="carousel-item active ">
+          <p class="d-block w-100 " alt="...">Weekend Brunch     I    Saturday 9am - 2pm</p>
+        </div>
+        <div class="carousel-item ">
+          <p class="d-block w-100" alt="...">Daily Deal    |   Coffee & Pastry $3.99</p>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+</div>
+
+<div class=" row section">
+  <div class="col-md-6 ">
+    <div class="section-container">
+      <h1 class="section-title">Eat</h1>
+      <p class="section-paragraph">Breakfast, Lunch and Artisanal Pastries</p>
+      <p>I'm a paragraph. Click here to add your own text and edit me.
+        I’m a great place for you to tell a story and let your users know a little more about you.
+      </p>
+      <button class="btn btn btn-outline-secondary" (click)="menu()">See More</button>
+    </div>
+  </div>
+  <div class="col-md-6 p-0">
+    <img class="img-fluid" src="assets/images/dinner.jpeg"  alt=""/>
+  </div>
+</div>
+
+<div class="row section">
+  <div class="col-md-6 p-0">
+    <img class="img-fluid" src="assets/images/drink.jpg" alt="">
+  </div>
+  <div class="col-md-6 section">
+    <div class="section-container">
+      <h1 class="section-title">Drink.</h1>
+      <p class="section-paragraph">The Freshest Cup in Town </p>
+      <p>I'm a paragraph. Click here to add your own text and edit me.
+        I’m a great place for you to tell a story and let your users know a little more about you.
+      </p>
+      <button class="btn btn btn-outline-secondary" (click)="menu()">See More</button>
+    </div>
+  </div>
+</div>
+
+<div class=" row section">
+  <div class="col-md-6 ">
+    <div class="section-container">
+      <h1 class="section-title">Enjoy.</h1>
+      <p class="section-paragraph">Make Yourself at Home</p>
+      <p>I'm a paragraph. Click here to add your own text and edit me.
+        I’m a great place for you to tell a story and let your users know a little more about you.
+      </p>
+      <a href="#details" class="btn btn btn-outline-secondary " >Visit Us</a>
+    </div>
+  </div>
+  <div class="col-md-6 p-0">
+    <img class="img-fluid" src="assets/images/drink.jpg"  alt=""/>
+  </div>
+</div>
+
+<div class="row" id="details">
+  <h1 class="section-title">Drop By for a Bite.</h1>
+  <div class="col-6">
+    <h3>Address</h3>
+    <p>500 Terry Francois St.<br>
+      San Francisco, CA 94158</p>
+  </div>
+  <div class="col-6 board">
+    <h3>Opening Hours</h3>
+    <p>Mon - Fri: 9am - 6pm<br>
+      ​​Saturday: 10am - 2pm<br>
+      ​Sunday: Closed</p>
+  </div>
+</div>
+
+
+

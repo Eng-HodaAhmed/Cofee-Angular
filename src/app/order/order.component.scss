@@ -1,0 +1,49 @@
+@import '../app.component.scss';
+.container{
+    width: 80%;
+    margin: auto;
+    &-info{
+        
+        padding: 10px;
+        border: 1px solid black;
+        width: 300px;
+        margin-top: 40px;
+    
+    }
+}
+.hidden{
+    visibility: hidden;;
+}
+.navbar{
+    border-bottom: 1px solid gray;
+   // width: 70%;
+    margin: auto;
+    
+}
+.links{
+    display: flex;
+    list-style-type: none;
+    margin-right: auto;
+    border-left: 1px solid gray;
+  
+    &-item{
+        margin-left: 40px;
+        text-decoration: none;
+        color: $nav-text-color;
+        font-size: large;
+        
+    }
+    
+}
+.shopping-badge{
+    font-size: 14px;
+    display: inline-block;
+    padding-bottom: 7px;
+    margin-left: 3px;
+}
+
+.list-group-item:hover{
+    background-color: rgb(243, 240, 240);
+    border: 1px solid black;
+}
+

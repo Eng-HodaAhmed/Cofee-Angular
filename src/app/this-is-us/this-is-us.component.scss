@@ -1,0 +1,26 @@
+@import '../app.component.scss';
+h1{
+    font-size: 50px;
+}
+.section{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container{
+    padding: 20vh
+}
+button{
+    margin-top: 30px;
+}
+.subsection{
+    //position: relative;
+    width: 100vw;
+    height: 150px;
+    color: $text-color;
+    background-color:$carousel-control-color ;
+    text-align: center;
+    padding: 50px;
+   
+}

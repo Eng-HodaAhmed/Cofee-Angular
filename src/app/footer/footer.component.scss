@@ -1,0 +1,15 @@
+@import '../app.component.scss';
+.footer{
+    width: 100vw;
+    height: 80vh;
+    background-color: $footer-background;
+    color: $text-color;
+    
+}
+.container{
+   
+    height: 100%;
+    margin:auto;
+    padding-top: 150px;
+    
+}

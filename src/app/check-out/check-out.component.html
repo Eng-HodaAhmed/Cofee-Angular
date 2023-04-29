@@ -1,0 +1,199 @@
+<app-main [data]="data"></app-main>
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <h2 class="mt-4 mb-4">Check Out</h2>
+            <div class="LoginNote" class="mb-5">
+                Already have an account? <a class="container-link"> Log in </a>for a faster checkout.
+            </div>
+
+            <div *ngIf="deliveryMethod==true" class="mb-5">
+                <h4 class="mt-4 mb-2">1. Delivery Method</h4>
+                <p>Pickup from <br>500 Terry Francois Street, San Francisco, CA 94158, USA </p>
+                <p class="col-md-3 ms-auto ps-4"> <a class="container-link">Show on map</a></p>
+                <div class="mb-4">
+                    Pickup time<br>
+                    ASAP (in 15 minutes)
+                </div>
+                <button class="btn btn-secondary form-control mb-4" (click)="onDelivery()">Continue</button>
+                <hr>
+                <h3 class="grayStyle">2. Contact Information</h3>
+                <hr>
+                <h3 class="grayStyle">3. Payments</h3>
+                <hr>
+                <h3 class="grayStyle">4. Review and Place Order</h3>
+                <br>
+
+            </div>
+
+            <div *ngIf="contact==true" class="mb-5">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h4><i class="fa-solid fa-check"></i> Delivery Method</h4>
+                        <p class="grayStyle">Pickup<br>
+                            500 Terry Francois Street, San Francisco, CA 94158, USA
+                            Pickup time: ASAP (in 15 minutes)</p>
+                    </div>
+                    <div class="col-3 text-end">
+                        <a class="container-link" (click)="goDelivery()">Edit</a>
+                    </div>
+                </div>
+                <hr>
+                <h4 class="mt-4 mb-4">2. Contact Information</h4>
+                <form #f="ngForm">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input class="form-control" type="text" name="firstName" ngModel required
+                                    #fname="ngModel" />
+                                <spam *ngIf="!fname.valid && fname.touched" class="text-danger">please enter first name
+                                </spam>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input class="form-control" type="text" name="lastName" ngModel required
+                                    #lname="ngModel" />
+                                <spam *ngIf="!lname.valid && lname.touched" class="text-danger">please enter last name
+                                </spam>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input class="form-control" type="text" name="phone" ngModel />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" type="text" name="email" ngModel mail required
+                                    #email="ngModel" />
+                                <spam *ngIf="!email.valid && email.touched" class="text-danger">please enter first email
+                                </spam>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" [disabled]="!f.valid" (click)="onSubmit()"
+                        class="btn btn-secondary form-control">Continue</button>
+                </form>
+                <hr>
+                <h3 class="grayStyle">3. Payments</h3>
+                <hr>
+                <h3 class="grayStyle">4. Review and Place Order</h3>
+                <br>
+            </div>
+
+            <div *ngIf="payment==true" class="mb-5">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h4><i class="fa-solid fa-check"></i> Delivery Method</h4>
+                        <p class="grayStyle">Pickup<br>
+                            500 Terry Francois Street, San Francisco, CA 94158, USA
+                            Pickup time: ASAP (in 15 minutes)</p>
+                    </div>
+                    <div class="col-3 text-end">
+                        <a class="container-link" style="cursor: pointer;" (click)="goDelivery()">Edit</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-9 ">
+                        <h4><i class="fa-solid fa-check"></i> Contact information</h4>
+                        <p class="grayStyle">{{user.firstName }} {{user.lastName}}<br>{{user.email}}</p>
+                    </div>
+                    <div class="col-3 text-end">
+                        <a class="container-link" style="cursor: pointer;" (click)="goContact()">Edit</a>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                    <h4>3. Payment</h4>
+                    <button class="btn btn-secondary form-control mt-4 mb-4" (click)="onPayment()">Continue</button>
+                </div>
+                <hr>
+                <h3 class="grayStyle">4. Review and Place Order</h3>
+                <br>
+            </div>
+
+            <div *ngIf="review==true" class="mb-5">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h4><i class="fa-solid fa-check"></i> Delivery Method</h4>
+                        <p class="grayStyle">Pickup<br>
+                            500 Terry Francois Street, San Francisco, CA 94158, USA
+                            Pickup time: ASAP (in 15 minutes)</p>
+                    </div>
+                    <div class="col-3 text-end">
+                        <a class="container-link" style="cursor: pointer;" (click)="goDelivery()">Edit</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-9 ">
+                        <h4><i class="fa-solid fa-check"></i> Contact information</h4>
+                        <p class="grayStyle">{{user.firstName }} {{user.lastName}}<br>{{user.email}}</p>
+                    </div>
+                    <div class="col-3 text-end">
+                        <a class="container-link" style="cursor: pointer;" (click)="goContact()">Edit</a>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-9">
+                        <h4><i class="fa-solid fa-check"></i>Payment</h4>
+                    </div>
+                    <div class="col-3 text-end">
+                        <a class="container-link" style="cursor: pointer;" (click)="goPayment()">Edit</a>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <h4>4. Review and Place Order</h4>
+                    <p>Please review the details above and place the order.</p>
+                    <button class="btn btn-secondary form-control">Submit Order</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-5 ">
+            <div class="list-group m-4 pt-4">
+                <div class="list-group-item">
+                    <h5>My Order({{ordersNum}})</h5>
+                </div>
+                <div class=" list-group-item p-0" *ngFor="let order of orders;let i=index">
+                    <div class="row p-2 m-auto text-center" style="font-size: 16px;">
+                        <div class="col-3 p-2">
+                            <div class="text-center" style="height:25px;max-width: 45px;">{{order.quantity}}</div>
+                        </div>
+                        <div class="col-6  align-items-center">
+                            <p class="p-0 m-0">{{order.name}}</p>
+                        </div>
+                        <div class="col-3">
+                            <p>${{order.totalPrice}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class=" list-group-item">
+                    <div class="row">
+                        <div class="col-6">
+                            <h6>Sub Total :</h6>
+                        </div>
+                        <div class="col-6 text-end ">
+                            <h6> $ {{subTotal}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

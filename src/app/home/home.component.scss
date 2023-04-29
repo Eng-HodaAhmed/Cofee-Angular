@@ -1,0 +1,50 @@
+@import'../app.component.scss';
+
+.home{
+    height: 100vh;
+    color: $text-color;
+    background-image: linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.9)),url('../../assets/images/background.jpg');
+    padding-top: 15vh;
+    animation:img 2s
+}
+.text-home{
+    padding: 4rem;
+}
+.title{
+    font-size: 50px;
+}
+.slide{
+    background-color: $carousel-control-color;
+    color: $text-color;
+    font-size: 20px;
+    height: 60px;
+}
+
+.section{
+    height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    &-container{
+        padding:0 20%;
+    }
+    &-title{
+        font-size: 60px;
+    }
+    &-paragraph{
+        margin-bottom: 20px;
+        font-size:20px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        
+    }
+}
+
+#details{
+    background-color:$primary-color ;
+    height: 70vh;
+    text-align: center;
+    padding: 10vh;
+    
+}
+.board{
+    border-left: 1px solid black;
+}

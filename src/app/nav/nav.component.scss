@@ -1,0 +1,18 @@
+@import '../app.component.scss';
+nav {
+    width: 100vw;
+    background-color:$primary-color;
+}
+
+.navbar-brand{
+    padding: 1rem;
+    font-size: 30px;
+    color: $nav-text-color;
+}
+
+.nav-link {
+    padding: 0;
+    margin: 15px;
+    text-decoration: none;
+    color: $nav-text-color;
+}

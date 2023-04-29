@@ -1,0 +1,23 @@
+$primary-color:rgb(247, 217, 214);
+$nav-text-color:rgb(0,0,0);
+$text-color:rgb(255, 255, 255);
+$carousel-control-color:rgb(126, 142, 137);
+$footer-background:rgb(56, 71, 56);
+
+
+@keyframes text {
+    from {
+        color:transparent;
+    }
+    to {
+        color:black;
+    }
+}
+@keyframes img {
+    from{
+        opacity: 0;
+    }
+    to{
+     opacity: 1;
+    }
+}

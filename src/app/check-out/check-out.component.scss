@@ -1,0 +1,22 @@
+
+.container{
+    width: 80%;
+    margin: auto;
+    &-link{
+        color: gray;
+    }
+    overflow: auto;
+}
+.LoginNote{
+ background-color: rgb(243, 240, 240); 
+ padding: 10px;
+ 
+}
+
+.grayStyle{
+    color:rgb(224, 224, 224)
+}
+
+input.ng-invalid.ng-touched{
+border: 1px solid red;
+}
