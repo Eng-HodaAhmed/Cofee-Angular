@@ -13,7 +13,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Deploy
-You can find this project on ............
+You can find this project on  https://eng-hodaahmed.github.io/deploy-Coffee-project/
 
 ## Further help
 
