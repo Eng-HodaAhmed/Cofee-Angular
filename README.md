@@ -12,9 +12,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Deploy
+## Deployment
 You can find this project on  https://eng-hodaahmed.github.io/deploy-Coffee-project/
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
